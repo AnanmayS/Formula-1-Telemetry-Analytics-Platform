@@ -107,7 +107,7 @@ For faster single-race ingest, `F1_TELEMETRY_INGEST_MODE=fastest_lap` stores one
 
 ## Modeling Approach
 
-The prediction model is adapted from [`AnanmayS/F1-RacePrediction-Model`](https://github.com/AnanmayS/F1-RacePrediction-Model): it uses an XGBoost sklearn-style regressor to predict each driver's final finishing position, scales numeric race features, then sorts drivers into a full predicted final grid.
+The prediction model uses an XGBoost sklearn-style regressor to predict each driver's final finishing position, scales numeric race features, then sorts drivers into a full predicted final grid.
 
 Prediction endpoints intentionally reject completed historical races. Completed races are used for replay,
 analysis, training, and evaluation; prediction cards are for future races only.
