@@ -1,0 +1,149 @@
+@import "tailwindcss" source(none);
+@source "../src";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 8px;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* F1 brand tokens */
+  --color-f1-red: var(--f1-red);
+  --color-f1-red-glow: var(--f1-red-glow);
+  --color-graphite: var(--graphite);
+  --color-graphite-2: var(--graphite-2);
+  --color-graphite-3: var(--graphite-3);
+  --color-status-yellow: var(--status-yellow);
+  --color-status-green: var(--status-green);
+  --color-status-sc: var(--status-sc);
+  --color-status-vsc: var(--status-vsc);
+  --color-status-red: var(--status-red);
+
+  --font-display: "Inter", "Helvetica Neue", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* Dark-first F1 pit-wall palette. The app runs in dark mode by default. */
+:root {
+  --radius: 0.5rem;
+
+  --background: oklch(0.16 0.012 260);
+  --foreground: oklch(0.98 0.005 260);
+
+  --card: oklch(0.20 0.013 260);
+  --card-foreground: oklch(0.98 0.005 260);
+
+  --popover: oklch(0.18 0.013 260);
+  --popover-foreground: oklch(0.98 0.005 260);
+
+  --primary: oklch(0.62 0.245 28);          /* F1 red */
+  --primary-foreground: oklch(0.99 0 0);
+
+  --secondary: oklch(0.26 0.013 260);
+  --secondary-foreground: oklch(0.96 0.005 260);
+
+  --muted: oklch(0.24 0.012 260);
+  --muted-foreground: oklch(0.70 0.012 260);
+
+  --accent: oklch(0.30 0.018 260);
+  --accent-foreground: oklch(0.98 0.005 260);
+
+  --destructive: oklch(0.62 0.245 28);
+  --destructive-foreground: oklch(0.99 0 0);
+
+  --border: oklch(0.30 0.013 260);
+  --input: oklch(0.30 0.013 260);
+  --ring: oklch(0.62 0.245 28);
+
+  --chart-1: oklch(0.62 0.245 28);
+  --chart-2: oklch(0.78 0.16 85);
+  --chart-3: oklch(0.70 0.16 160);
+  --chart-4: oklch(0.65 0.16 250);
+  --chart-5: oklch(0.78 0.18 60);
+
+  --sidebar: oklch(0.18 0.013 260);
+  --sidebar-foreground: oklch(0.96 0.005 260);
+  --sidebar-primary: oklch(0.62 0.245 28);
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: oklch(0.26 0.013 260);
+  --sidebar-accent-foreground: oklch(0.96 0.005 260);
+  --sidebar-border: oklch(0.30 0.013 260);
+  --sidebar-ring: oklch(0.62 0.245 28);
+
+  /* F1 brand */
+  --f1-red: oklch(0.62 0.245 28);
+  --f1-red-glow: oklch(0.70 0.230 28);
+  --graphite: oklch(0.20 0.013 260);
+  --graphite-2: oklch(0.24 0.013 260);
+  --graphite-3: oklch(0.30 0.013 260);
+  --status-green: oklch(0.74 0.18 145);
+  --status-yellow: oklch(0.85 0.18 95);
+  --status-sc: oklch(0.82 0.18 80);
+  --status-vsc: oklch(0.78 0.14 60);
+  --status-red: oklch(0.62 0.245 28);
+}
+
+.dark {
+  /* same as root – app is dark-only */
+}
+
+@layer base {
+  html, body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-display);
+    -webkit-font-smoothing: antialiased;
+  }
+  * { border-color: var(--color-border); }
+
+  .font-mono { font-family: var(--font-mono); }
+
+  /* Subtle pit-wall grid backdrop used on replay/session shell */
+  .bg-pitwall {
+    background-color: var(--background);
+    background-image:
+      linear-gradient(to right, color-mix(in oklab, var(--foreground) 4%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in oklab, var(--foreground) 4%, transparent) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .scanline-top {
+    background: linear-gradient(90deg, transparent, var(--f1-red), transparent);
+    height: 2px;
+  }
+}

@@ -1,0 +1,26 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      F1_DATABASE_URL: sqlite:///./data/f1_analytics.db
+      F1_CORS_ORIGINS: '["http://localhost:5173","http://127.0.0.1:5173","http://localhost:5174","http://127.0.0.1:5174","http://localhost:5175","http://127.0.0.1:5175","http://localhost:5176","http://127.0.0.1:5176","http://localhost:5177","http://127.0.0.1:5177"]'
+      F1_BOOTSTRAP_ON_STARTUP: "false"
+      F1_BOOTSTRAP_YEARS: "4"
+      F1_BOOTSTRAP_WORKERS: "1"
+      F1_TRAINING_YEARS: "3"
+      F1_TELEMETRY_INGEST_MODE: full
+    volumes:
+      - ./backend/data:/app/data
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "5173:5173"
+    environment:
+      VITE_API_BASE_URL: http://localhost:8000
+    depends_on:
+      - backend

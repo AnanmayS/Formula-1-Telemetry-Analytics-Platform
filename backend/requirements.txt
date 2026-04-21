@@ -1,0 +1,14 @@
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+pydantic==2.10.4
+pydantic-settings==2.7.1
+pandas==2.2.3
+numpy==1.26.4
+scikit-learn==1.7.1
+xgboost==3.0.4
+fastf1==3.4.4
+joblib==1.4.2
+SQLAlchemy==2.0.36
+pyarrow==18.1.0
+pytest==8.3.4
+httpx==0.28.1
