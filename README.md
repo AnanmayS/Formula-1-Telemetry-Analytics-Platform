@@ -1,6 +1,6 @@
 # Formula 1 Telemetry Analytics Platform
 
-A local Formula 1 analytics app built with FastAPI, React, FastF1, and XGBoost.
+A Formula 1 analytics app built with FastAPI, React, FastF1, and XGBoost.
 
 The app can download real F1 session data, process it into replay and telemetry files, show an interactive race replay, and generate simple future-race finishing order predictions from locally trained model artifacts.
 
