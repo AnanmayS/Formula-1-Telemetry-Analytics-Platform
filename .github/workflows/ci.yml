@@ -26,11 +26,14 @@ jobs:
       - name: Install backend dependencies
         run: pip install -r requirements.txt
 
+      - name: Lint with ruff
+        run: ruff check .
+
       - name: Run backend tests
         run: pytest
 
   frontend:
-    name: Frontend build
+    name: Frontend checks
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -48,6 +51,12 @@ jobs:
 
       - name: Install frontend dependencies
         run: npm ci
+
+      - name: Run ESLint
+        run: npx eslint src/ --max-warnings=50
+
+      - name: Check Prettier formatting
+        run: npx prettier --check src/
 
       - name: Build frontend
         run: npm run build
